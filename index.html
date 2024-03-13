@@ -3,12 +3,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <body>
     <div ng-app="">
-      <input
-        type="text"
-        ng-focus="mySwitch=true"
-        ontouchstart="mySwitch=true"
-        ng-readonly="!mySwitch"
-      />
+      <input type="text" ng-click="mySwitch=true" ng-readonly="!mySwitch" />
       <p>{{ mySwitch }}</p>
     </div>
   </body>
