@@ -6,13 +6,7 @@
       First Name:
       <input type="text" ng-model="firstName" ng-click="change(this)" /><br />
       Last Name:
-      <input
-        type="text"
-        id="lastname"
-        ng-model="lastName"
-        ng-readonly="read"
-        ng-focus="change(this)"
-      /><br />
+      <input type="text" id="lastname" ng-model="lastName" /><br />
       <br />
       Full Name: {{firstName + " " + lastName}}
     </div>
@@ -20,12 +14,12 @@
     <script>
       var app = angular.module("myApp", []);
       app.controller("myCtrl", function ($scope) {
-        $scope.read = true;
+        document.getElementById("lastname").readOnly = true;
         document
           .getElementById("lastname")
           .addEventListener("focus", (event) => {
-            $scope.read = false;
-            document.getElementById("lastname").select();
+            document.getElementById("lastname").readOnly = false;
+            document.getElementById("lastname").focus();
           });
 
         $scope.firstName = "John";
