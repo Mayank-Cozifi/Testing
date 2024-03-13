@@ -23,7 +23,7 @@
         $scope.read = true;
         $scope.change = function (inp) {
           $scope.read = false;
-          document.getElementById("lastname").focus();
+          document.getElementById("lastname").focus().apply();
         };
         $scope.firstName = "John";
         $scope.lastName = "";
