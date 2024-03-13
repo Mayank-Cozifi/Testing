@@ -25,10 +25,7 @@
           .getElementById("lastname")
           .addEventListener("focus", (event) => {
             $scope.read = false;
-            angular
-              .element(document.getElementById("lastname"))
-              .scope()
-              .$apply();
+            document.getElementById("lastname").select();
           });
 
         $scope.firstName = "John";
