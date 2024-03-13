@@ -3,13 +3,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <body>
     <div ng-app="myApp" ng-controller="myCtrl">
-      First Name: <input type="text" ng-model="firstName" /><br />
+      First Name:
+      <input type="text" ng-model="firstName" ng-click="change(this)" /><br />
       Last Name:
       <input
         type="text"
+        id="lastname"
         ng-model="lastName"
         ng-readonly="read"
-        ng-focus="read=false"
+        ng-focus="change(this)"
       /><br />
       <br />
       Full Name: {{firstName + " " + lastName}}
@@ -19,6 +21,10 @@
       var app = angular.module("myApp", []);
       app.controller("myCtrl", function ($scope) {
         $scope.read = true;
+        $scope.change = function (inp) {
+          $scope.read = false;
+          document.getElementById("lastname").focus();
+        };
         $scope.firstName = "John";
         $scope.lastName = "";
       });
