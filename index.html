@@ -21,10 +21,16 @@
       var app = angular.module("myApp", []);
       app.controller("myCtrl", function ($scope) {
         $scope.read = true;
-        $scope.change = function (inp) {
-          $scope.read = false;
-          document.getElementById("lastname").focus().apply();
-        };
+        document
+          .getElementById("lastname")
+          .addEventListener("focus", (event) => {
+            $scope.read = false;
+            angular
+              .element(document.getElementById("lastname"))
+              .scope()
+              .$apply();
+          });
+
         $scope.firstName = "John";
         $scope.lastName = "";
       });
